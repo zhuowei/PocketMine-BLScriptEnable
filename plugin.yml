@@ -2,3 +2,7 @@ name: BLScriptEnable
 main: BLScriptEnable
 version: 1.0
 api: 1.5
+permissions:
+  blscriptenable.usescripts:
+    default: true
+    description: Allow usage of BlockLauncher scripts

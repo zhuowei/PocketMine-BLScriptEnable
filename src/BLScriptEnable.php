@@ -16,10 +16,12 @@ class BLScriptEnable extends PluginBase implements Listener {
 	 * @priority MONITOR
 	 */
 	public function onPlayerJoin(PlayerJoinEvent $event){
-		$pk = new TextPacket();
-		$pk->type = TextPacket::TYPE_CHAT;
-		$pk->source = "";
-		$pk->message = TextFormat::BLACK . "BlockLauncher, enable scripts";
-		$event->getPlayer()->dataPacket($pk->setChannel(Network::CHANNEL_TEXT));
+        if($event->getPlayer()->hasPermission("blscriptenable.usescripts")) {
+            $pk = new TextPacket();
+            $pk->type = TextPacket::TYPE_CHAT;
+            $pk->source = "";
+            $pk->message = TextFormat::BLACK . "BlockLauncher, enable scripts";
+            $event->getPlayer()->dataPacket($pk->setChannel(Network::CHANNEL_TEXT));
+        }
 	}
 }
